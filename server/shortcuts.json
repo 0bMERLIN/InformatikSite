@@ -1,0 +1,11 @@
+{ "shortcuts":
+  [
+    { "name": "tp-zero",
+      "query" :
+        [ "tp"
+        , "%player to be teleported"
+        , "0 0 0"
+        ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "baseDirs" :
+    [ { "path": "../../html", "cType": "text/html" }
+    , { "path": "../../html/js", "cType": "application/javascript" }
+    , { "path": "../../html/css", "cType": "text/css" }
+    ]
+
+, "defaultRedirect" : "/html/index.html"
+}

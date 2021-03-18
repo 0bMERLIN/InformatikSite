@@ -1,0 +1,8 @@
+node_modules/
+package-lock.json
+lib/
+*.merlin
+.bsconfig.json
+.package.json
+server/general-server-framework/bsconfig.json
+server/general-server-framework/package.json
