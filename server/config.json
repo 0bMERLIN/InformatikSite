@@ -1,9 +1,13 @@
 {
   "baseDirs" :
-    [ { "path": "../../html", "cType": "text/html" }
-    , { "path": "../../html/js", "cType": "application/javascript" }
-    , { "path": "../../html/css", "cType": "text/css" }
+    [ { "path": "../../src", "cType": "text/html" }
+      , { "path": "../../src/js", "cType": "application/javascript" }
+      , { "path": "../../src/css", "cType": "text/css" }
+      , { "path": "../../src/js/utils", "cType": "application/javascript" }
+      , { "path": "../../src/resources", "cType": "image/x-icon" }
+      , { "path": "../../src/js/elm-utils", "cType": "application/javascript" }
+      , { "path": "../../src/resources/pngs", "cType": "image/png" }
     ]
 
-, "defaultRedirect" : "/html/index.html"
+, "defaultRedirect" : "/src/index.html"
 }

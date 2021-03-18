@@ -1,1 +1,1 @@
-elm make --output main.js src/Editor.elm src/Tutorial.elm
+elm make --output ../js/main.js src/Editor.elm src/Tutorial.elm
