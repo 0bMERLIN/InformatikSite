@@ -1,0 +1,208 @@
+:root {
+  --text-color: #848692;
+  
+  --color-secondary: #F5F5F5;
+  --color-secondary-darker: #F5F5F5;
+  --color-secondary-hover: #e0e0e0;
+  --color-secondary-hover-light: #ffffff;
+  
+  --color-primary: #ececec;
+  --color-background: #f9fcfb;
+  --color-background-transparent: rgba(249, 252, 251, 0.644);
+
+	--code-editor-color: #f9fcfb;
+  --editor-elem-border-color: #ffffff;
+  
+  --widget-red: #e44c41;
+  --widget-dark-red: #db5349;
+  --widget-green: #59f1a8;
+  --widget-blue: #6a53fd;
+
+  --selection-color: #fdde53b6;
+  --selection-text-color: none;
+
+  --color-top-section-bg: #f1eeee;
+}
+
+::selection {
+  background-color: var(--selection-color);
+  color: var(--selection-text-color);
+}
+
+
+.noselect {                            /*´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´*/
+  -webkit-touch-callout: none;      /* iOS Safari                      */
+  -webkit-user-select:   none;     /* Safari                          */
+  -khtml-user-select:    none;    /* Konqueror HTML                  */
+  -moz-user-select:      none;   /* Old versions of Firefox         */
+  -ms-user-select:       none;  /* Internet Explorer/Edge          */
+  user-select:           none; /* Chrome, Edge, Opera and Firefox */
+                              /*.................................*/
+}
+
+
+body {
+  background-color: var(--color-background);
+  height: 100%;
+  margin: 0px;
+  overflow: hidden;
+}
+
+
+/* Hide scrollbar for Chrome, Safari, Opera, IE, Edge and Firefox */
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  -ms-overflow-style: none;
+  height: 100%;
+  scrollbar-width: none;
+}
+
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+
+/*----------- top section -----------*/
+#top-bg {
+  display: flex;
+  width: 100vw;
+  height: 33vh;
+  overflow-y: hidden;
+  background-color: var(--color-top-section-bg);
+  justify-content: center;
+}
+
+
+#top-bar {
+  z-index: 100;
+  position: relative;
+  display: flex;
+  opacity: .98;
+  width: 100vw;
+  height: 6.7vh;
+  background-color: var(--widget-red);
+  overflow-y: hidden;
+  justify-content: flex-end;
+}
+
+
+#dot-lang-icon {
+  position: relative;
+  height: calc(33vh * 2);
+  width: auto;
+  top: calc(33vh * -.50);
+  filter: grayscale(0.1);
+}
+
+
+#info {
+  display: flex;
+  background-color: var(--color-top-section-bg);
+}
+
+.info-elem {
+  font-size: 1.5vw;
+  width: 50vw;
+  height: 45vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: var(--text-color);
+
+  padding: 1%;
+
+  text-align: center;
+}
+
+
+#code-example {
+  padding-top: 4vh;
+  padding-bottom: 0px;
+}
+
+
+#description {
+  position: relative;
+}
+
+
+.page-link {
+  display: inline-block;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: lighter;
+  color: var(--color-background);
+  
+  text-decoration: none;
+
+  text-decoration: none;
+  background-image: repeating-linear-gradient(
+      var(--color-background-transparent)
+      , var(--color-background-transparent)
+  );
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1.5vh;
+  transition: background-size .1s ease-out;
+
+  text-align: center;
+  font-size: 3vh;
+
+  margin-right: 5vw;
+  
+  position: relative;
+  padding-top: 1vh;
+  padding-left: 1px;
+  padding-right: 1px;
+  padding-bottom: 0px;
+  height: 4vh;
+}
+
+.page-link:hover {
+  background-size: 100% 1.5vh;
+}
+
+/*----------- media queries -----------*/
+@media only screen and (max-width: 800px) {
+  .page-link:hover {
+    background-size: 0% 1.5vh;
+  }
+
+  
+  #top-bar {
+    z-index: 100;
+    position: relative;
+    display: flex;
+    opacity: .98;
+    width: 100vw;
+    height: 6.7vh;
+    background-color: var(--widget-red);
+    overflow-y: hidden;
+    justify-content: space-around;
+  }
+
+  body {
+    background-color: var(--color-top-section-bg);
+  }
+
+  #info {
+    flex-direction: column;
+  }
+
+  .info-elem {
+    width: 100vw;
+  }
+
+  
+  #description {
+    font-size: large; 
+    top: -4vh;
+  }
+  
+}
+
+@media only screen and (min-width: 801px) {
+  
+}

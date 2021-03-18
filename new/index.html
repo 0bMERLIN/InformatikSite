@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- meta info/window setup -->
+    <meta charset='unicode' name='viewport' content='width=device-width, initial-scale=1'>
+    
+    <title>dot-language</title>
+
+    <!-- that little icon that shows up on the browser tab -->
+    <link rel="shortcut icon" href="resources/favicon.ico">
+    
+    <!-- load js scripts -->
+    <script src="js/utils/resizing-manager.js"></script>
+
+    <!-- load elm app -->
+    <script src="js/elm-utils/code-box.js"></script>
+    <script src="elm-new/main.js"></script>
+    
+    <!-- load css stylesheets -->
+    <link rel="stylesheet"
+          href="css/code-editor.css">
+    <link rel='stylesheet'
+          type='text/css'
+          media='screen'
+          href='css/lobby.css'>
+    <link rel='stylesheet'
+          type='text/css'
+          media='screen'
+          href='css/index.css'>
+    <link rel='stylesheet'
+          type='text/css'
+          media='screen'
+          href='css/resizing-manager.css'>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap"
+          rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+</head>
+
+<body>
+
+
+  <!----------------------TOP BAR---------------------->
+  <div id="top-bar">
+    <div class="page-link noselect"><a href="index.html">home</a></div>
+    <div class="page-link noselect"><a href="index.tutorial.html">online-ide</a></div>
+    <div class="page-link noselect"><a href="index.docs.html">docs</a></div>
+  </div>
+
+  <div id="top-bg">
+    <img
+      id="dot-lang-icon"
+      class="noselect dot-lang-icon-width"
+      src="resources/dot-lang-icon.png">
+  </div>
+
+
+  <!----------------------BOTTOM INFO---------------------->
+  <div id="info">
+  
+    <div id="editor-container" class="hide-on-mobile info-elem">
+      <div id="elm-app">
+        <script>
+          let example =
+`mod Numbers
+  def a = 10
+  def b = 20
+end
+
+mod Start
+  def start = IO.print (stringof Numbers.a + Numbers.b)
+end;`
+          // start the elm app
+          initCodeBox("elm-app")(example)
+        </script>
+      </div>
+    </div>
+    
+    <div id="description" class="info-elem">
+      Dot ist eine auf Elm basierte scripting Sprache.<br>
+      Bisher kann man die Sprache nur im online-IDE  ⤻<br>
+      benutzen.<br>
+      ⬿ Beispielprogramm
+    </div>
+  
+  
+  </div>
+  
+
+</body>
+
+</html>

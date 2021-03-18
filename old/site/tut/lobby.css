@@ -1,0 +1,126 @@
+@import "../shared/colors.css";
+
+
+/* ---------------------------------global stuff------------------------------------- */
+/* Hide scrollbar for Chrome, Safari, Opera, IE, Edge and Firefox */
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+/* overflow behaviour etc. */
+body {
+  overflow: scroll;
+}
+
+span {
+  word-wrap: break-word;
+}
+
+.code {
+  transition: opacity 0.1s linear;
+
+  border-radius: 5%;
+
+  margin-top: 5%;
+  padding: 5%;
+
+  background-color: var(--color-secondary-hover-light);
+}
+
+.heading {
+  display: inline-block;
+  
+  top: -100px;
+  
+  color: lavender;
+  text-decoration: none;
+
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size .3s;
+}
+
+.heading:hover {
+  background-size: 100% 2px;
+}
+
+.explanation {
+  transition: opacity 0.1s linear;
+}
+
+.card {  
+  /* font */
+  font-size: 1rem;
+  line-height: 1.3rem;
+  font-family: monospace;
+  white-space: pre;
+  word-wrap: break-word;
+  line-height: 1.5em;
+
+  /* dimensions */
+  transform: scale(.85);
+  width: 90vw;
+  
+  /* other configuration stuff */
+  overflow: hidden;
+  white-space: normal;
+  
+  /* positioning */
+  text-align: center;
+
+  text-align: left;
+  
+  padding-top: 1%;
+  padding-bottom: 5%;
+
+  padding-left: 2%;
+  padding-right: 2%;
+  
+  position: relative;
+
+  margin: auto;
+  
+  /* borders */
+  border-radius: 2%;
+  
+  border-right-width: .3vw;
+  border-right-style: solid;
+  border-right-color: var(--color-secondary-hover-light);
+
+  border-top-width: 4vh;
+  border-top-style: solid;
+  border-top-color: var(--color-secondary-hover);
+
+  border-bottom-width: .5vw;
+  border-bottom-style: solid;
+  border-bottom-color: var(--color-secondary-hover);
+  
+  /* colors */
+  background-color: var(--color-secondary-darker);
+  color: var(--text-color);
+}
+
+.cards {
+  margin: auto;
+  margin-top: 10vh;
+}
+
+.cards-container {
+  margin: auto;
+}
+
+/* media configuration */
+@media screen and (max-width: 400px) { /* mobile */
+  .only-mobile {
+    width: 0px;
+  }
+}

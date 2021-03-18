@@ -1,0 +1,107 @@
+
+/* ---------------------------------global stuff------------------------------------- */
+span {
+  word-wrap: break-word;
+}
+
+.code {
+  transition: opacity 0.1s linear;
+
+  border-radius: 10px;
+
+  margin-top: 5%;
+  padding: 5%;
+
+  background-color: var(--color-secondary-hover-light);
+}
+
+.heading {
+  display: inline-block;
+  
+  top: -100px;
+  
+  color: var(--widget-blue);
+  text-decoration: none;
+
+  text-decoration: none;
+  background-image: repeating-linear-gradient(currentColor, currentColor);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size .3s;
+}
+
+.heading:hover {
+  background-size: 100% 2px;
+}
+
+.explanation {
+  transition: opacity 0.1s linear;
+}
+
+.card {
+  /* colors */
+  background-color: var(--color-secondary-darker);
+  color: var(--text-color);
+
+  /* font */
+  font-size: 1rem;
+  line-height: 1.3rem;
+  font-family: monospace;
+  white-space: pre;
+  word-wrap: break-word;
+  line-height: 1.5em;
+
+  /* dimensions */
+  transform: scale(.85);
+  
+  /* other configuration stuff */
+  white-space: normal;
+  
+  /* positioning */
+  text-align: left;
+  
+  padding-top: 1%;
+  padding-bottom: 5%;
+  padding-left: 2%;
+  padding-right: 2%;
+  
+  position: relative;
+
+  margin: auto;
+  margin-top: -7vh;
+  
+  /* borders */
+  border-radius: 10px;
+  
+  border-right-width: .15vw;
+  border-right-style: solid;
+  border-right-color: var(--color-secondary-hover-light);
+
+  border-top-width: 4vh;
+  border-top-style: solid;
+  border-top-color: var(--color-secondary-hover);
+
+  border-bottom-width: .25vw;
+  border-bottom-style: solid;
+  border-bottom-color: var(--color-secondary-hover);
+}
+
+.cards {
+  margin: auto;
+  margin-top: 14.5vh;
+}
+
+.cards-container {
+  width: inherit;
+  height: 100vh;
+
+  overflow: scroll;
+}
+
+/* media configuration */
+@media screen and (max-width: 400px) { /* mobile */
+  .only-mobile {
+    width: 0px;
+  }
+}

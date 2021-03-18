@@ -1,0 +1,238 @@
+.noselect {                            /*´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´*/
+    -webkit-touch-callout: none;      /* iOS Safari                      */
+    -webkit-user-select:   none;     /* Safari                          */
+    -khtml-user-select:    none;    /* Konqueror HTML                  */
+    -moz-user-select:      none;   /* Old versions of Firefox         */
+    -ms-user-select:       none;  /* Internet Explorer/Edge          */
+    user-select:           none; /* Chrome, Edge, Opera and Firefox */
+                                /*.................................*/
+}
+
+/* --------------------------editor-------------------------- */
+.editor-wrapper {
+  height: 97%;
+  width: inherit;
+  position: relative;
+  padding: 0px;
+  text-align: left;
+}
+
+.editor {
+    /* dimensions */
+    height: inherit;
+    padding: 0px;
+    border: none;
+
+    /* positioning */
+    position: relative;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    margin-right: 1vw;
+    margin-left: 1vw;
+
+    /* inner positioning */
+    display: flex;
+    flex-direction: column;
+}
+
+.editor .input, .editor .highlighted-output {
+    /* dimensions */
+    box-sizing: border-box;
+    height: inherit;
+    width: 100%;
+
+    /* positioning */
+    position: absolute;
+    
+    /* inner positioning/sizing */
+    padding: 0.5%;
+    
+    /* font */
+    font-size: 1rem;
+    line-height: 1.3rem;
+    font-family: monospace;
+    white-space: pre;
+    word-wrap: break-word;
+    line-height: 1.5em; /* recommended value by then w3c */
+    
+    /* events */
+    overflow: scroll;
+
+    /* borders */
+    border-width: 0.3vh;
+    border-style: hidden;
+    border-color: var(--editor-elem-border-color);
+    border-radius: 1%;
+    outline: none;
+    margin-top: -2vh;
+    
+    /* colors */
+    background-color: var(--code-editor-color);
+}
+
+.editor .input {
+    /* positioning */
+    z-index: 1;
+
+    /* colors */
+    color: transparent;
+    caret-color: var(--text-color);
+    background-color: transparent;
+
+    cursor: default;
+}
+
+.editor .highlighted-output {
+    z-index: 0;
+    color: var(--text-color);
+}
+
+span > span {
+    color: transparent !important;
+}
+
+/* --------------------------popup-messages-------------------------- */
+.popup-msg {
+    /* alignment */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* positioning */
+    position: absolute;
+    z-index: 5;
+    padding: 1% 2.1% 1.1%;
+    top: calc(60% - 60vh / 2);
+    left: calc(50% - 40vw / 2);
+    
+    /* dimensions */
+    width: 40vw;
+    height: 50vh;
+
+    /* shadow */
+    box-shadow: 0px -1vh 0px rgba(0, 0, 0, 0.1) inset;
+
+    /* border */
+    border-radius: 1vh;
+    border-width: .5vh;
+    outline: 1px solid transparent; /* <- fixes weird screenRedraw bug in chrome */
+
+    /* colors */
+    color: rgba(0, 0, 0, 0.5);
+
+    /* text */
+    font-family: sans-serif;
+    font-weight: 800;
+    font-size: 3vh;
+    text-align: center;
+    text-decoration: none;
+    word-break: normal;
+    white-space: normal;
+
+    /* transitions */
+    transition: transform 0.5s
+              , background-color 0.5s;
+}
+
+.popup-msg:hover {
+    transform: scale(1.01);
+    transition: transform 0.5s;
+}
+
+.remove-msg {
+    background-color: rgba(0, 0, 0, 0);
+    transform: scale(0);
+}
+
+.out-msg {
+    background-color: var(--widget-green);
+}
+
+.err-msg {
+    background-color: var(--widget-red);
+}
+
+/*--------------------------run btn--------------------------*/
+#run-btn, #brightness-btn {
+  overflow: hidden;
+
+  position: relative;
+
+  outline: none;
+  border: none;
+
+  background-color: transparent;
+
+  color: var(--widget-red);
+
+  width: 1.95em;
+  height: 1.9em;
+
+  line-height: 1.9em;
+
+  text-align: center;
+
+  padding: 0px;
+
+  border-color: var(--widget-red);
+  border-style: solid;
+  border-width: .1px;
+
+  margin-left: -.5vw;
+
+  border-radius: 10%;
+
+  top: -2.2em;
+  left: 2vw;
+
+  transition: all 0.2s linear;
+}
+
+#run-btn:hover, #brightness-btn:hover {
+  background-color: var(--widget-red);
+
+  border-color: var(--widget-red);
+  
+  color: var(--color-background);
+
+  transition: all 0.2s linear;
+}
+
+/*--------------------------media queries--------------------------*/
+@media only screen and (max-width: 800px) {
+  .popup-msg {
+    width: 85vw;
+
+    height: 35vh;
+
+    top: calc(60% - 50vh / 2);
+    left: calc(25% - 40vw / 2);
+
+    margin: auto;
+  }
+
+  
+  #brightness-btn {
+    margin-left: 1vw;
+  }
+}
+
+@media only screen and (min-width: 801px) {
+  .dot-lang-icon-width {
+    width: 33vw;
+  }
+  
+  .hide-on-desktop {
+    display: none;
+  }
+  
+  #run-btn {
+    left: 1.5%;
+  }
+}
+
+
+/*--------------------------brightness modes--------------------------*/
+.display-none {
+  display: none;
+}

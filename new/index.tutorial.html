@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- meta info/window setup -->
+    <meta charset='unicode' name='viewport' content='width=device-width, initial-scale=1'>
+    
+    <title>interactive-tutorial</title>
+
+    <!-- that little icon that shows up on the browser tab -->
+    <link rel="shortcut icon" href="resources/favicon.ico">
+    
+    <!-- load js scripts -->
+    <script src="js/utils/resizing-manager.js"></script>
+    <script src="js/utils/tab-handler.js"></script>
+    <script src="js/utils/scroll-duplicator.js"></script>
+    <script src="js/utils/mobile-editor-manager.js"></script>
+    <script src="js/utils/preserve-scroll.js"></script>
+    <script src="js/utils/brightness-mode-mngr.js"></script>
+
+    <!-- load elm app -->
+    <script src="elm-new/main.js"></script>
+    
+    <script src="js/elm-utils/run-code.js"></script>
+    <script src="js/elm-utils/run-elm-app.js"></script>
+    
+    <!-- load css stylesheets -->
+    <link rel="stylesheet"
+          href="css/index.css">
+    <link rel="stylesheet"
+          href="css/code-editor.css">
+    <link rel='stylesheet'
+          type='text/css'
+          media='screen'
+          href='css/lobby.css'>
+    <link rel='stylesheet'
+          type='text/css'
+          media='screen'
+          href='css/tutorial-style.css'>
+    <link rel='stylesheet'
+          type='text/css'
+          media='screen'
+          href='css/resizing-manager.css'>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap"
+          rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+</head>
+
+<body>
+
+    <!-----------------------TOP BAR----------------------------->
+    <div id="top-bar">
+      <div class="page-link noselect"><a href="index.html">home</a></div>
+      <div class="page-link noselect"><a href="index.tutorial.html">online-ide</a></div>
+      <div class="page-link noselect"><a href="index.docs.html">docs</a></div>
+    </div>
+
+    <div class="progress-container" id="progress-container"></div>
+
+    <!------------------------CODE EDITOR------------------------------>
+    <!-- this div will be replaced by elms view function applied to the
+         model. this will create the code editor.
+         the code can be compiled and run using the run button.
+         the styling for these elements is in code-editor.css -->
+    <div id="editor-container" class="hide-on-mobile">
+      <div id="elm-app">
+        <script>
+            // start the elm app
+            CodeEditor_main()
+        </script>
+      </div>
+    </div>
+
+    <script>
+      // text editing / event sharing stuff
+      handleTabs("code-input");
+      dupScrollFromTo("code-input", "code-output")
+    </script>
+
+    <!------------------------TUTORIAL------------------------------>
+    <div id="tut-container">
+      <div id="elm-app">
+        <script>
+            // start the elm app
+            Tutorial_main()
+        </script>
+      </div>
+    </div>
+
+    <!----------------------BOTTOM BAR--------------------------->
+    <div class="bottom-bar hide-on-desktop">
+      <button
+        class="material-icons tutorial-icon"
+        onclick="hideEditor(); showTut()">
+        lightbulb_outline
+      </button>
+      <button
+        class="material-icons editor-icon"
+        onclick="showEditor(); hideTut()">
+        code
+      </button>
+    </div>
+
+    <!----------------------TOP SCROLL INDICATOR---------------------->
+    <script>
+      document.getElementById("cards-container").onscroll = e => {
+        let el = document.getElementById("cards-container")
+
+        let scroll = el.scrollTop
+      
+        let height = el.scrollHeight - el.clientHeight
+
+        let scrolled = (scroll / height) * 100
+
+        document.getElementById("progress-container").setAttribute("style", `width: ${scrolled}%`);
+      }
+
+      initPreserveScroll("cards-container")
+    </script>
+
+    <!----------------------MOBILE EDITOR MANAGER---------------------->
+    <script>
+      initMobilePageMngr()
+    </script>
+
+    <!----------------------THEME SWITCHING---------------------->
+    <script>
+      updateStyleVars()
+    </script>
+</body>
+
+</html>

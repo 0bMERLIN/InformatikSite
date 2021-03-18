@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- meta info/window setup -->
+    <meta charset='unicode' name='viewport' content='width=device-width, initial-scale=1'>
+    
+    <title>dot-language</title>
+
+    <!-- that little icon that shows up on the browser tab -->
+    <link rel="shortcut icon" href="resources/favicon.ico">
+    
+    <!-- load js scripts -->
+    <script src="js/utils/resizing-manager.js"></script>
+
+    <!-- load elm app -->
+    <script src="js/elm-utils/code-box.js"></script>
+    <script src="elm-new/main.js"></script>
+    
+    <!-- load css stylesheets -->
+    <link rel="stylesheet"
+          href="css/index.css">
+    
+    <link rel="stylesheet"
+          href="css/code-editor.css">
+    <link rel="stylesheet"
+          href="css/docs-style.css">
+</head>
+
+<body>
+
+
+  <!----------------------TOP BAR---------------------->
+  <div id="top-bar">
+    <div class="page-link noselect"><a href="index.html">home</a></div>
+    <div class="page-link noselect"><a href="index.tutorial.html">online-ide</a></div>
+    <div class="page-link noselect"><a href="index.docs.html">docs</a></div>
+  </div>
+
+  <div class="title-with-lower-border">Dot - Standard Libary</div>
+
+  <div class="doc-table-wrapper">
+  <table class="doc-table">
+    <tbody>
+      <tr>
+        <td class="name"><div class="name-inner">write</div></td>
+        <td class="info">write schreibt einen als input gegebenen Buchstaben in den output, der am ende auf dem bildschirm erscheint.</td>
+      </tr>
+      <tr>
+        <td class="name"><div class="name-inner">stringof</div></td>
+        <td class="info">wandelt datenstrukturen in strings um.</td>
+      </tr>
+      <tr>
+        <td class="name"><div class="name-inner">List.reduce <FUNKTION> <LISTE></div></td>
+        <td class="info">faltet/reduziert eine liste mithilfe einer funktion nach links.</td>
+      </tr>
+      <tr>
+        <td class="name"><div class="name-inner">List.map <FUNKTION> <LISTE></div></td>
+        <td class="info">wendet eine funktion auf jedes der elemente in der liste an</td>
+      </tr>
+      <tr>
+        <td class="name"><div class="name-inner">List.concat <LISTE 1> <LISTE 2></div></td>
+        <td class="info">hängt eine Liste an eine andere</td>
+      </tr>
+      <tr>
+        <td class="name"><div class="name-inner">List.head <LISTE></div></td>
+        <td class="info">gibt das erste element einer liste zurück</td>
+      </tr>
+      <tr>
+        <td class="name"><div class="name-inner">List.tail <LISTE></div></td>
+        <td class="info">gibt die Liste ohne das erste element zurück</td>
+      </tr>
+      <tr>
+        <td class="name"><div class="name-inner">List.atIndex <INDEX> <LISTE></div></td>
+        <td class="info">gibt ein element an einer bestimmten position in einer Liste zurück</td>
+      </tr>
+      <tr>
+        <td class="name"><div class="name-inner">Ctrl.if <BEDINGUNG> <TRUE_BR> <FALSE_BR></div></td>
+        <td class="info">wenn die bedingung :true ist, dann wendet if die funktion TRUE_BR auf das lehre objekt {} an. sonst FALSE_BR</td>
+      </tr>
+      <tr>
+        <td class="name"><div class="name-inner">IO.print <STRING></div></td>
+        <td class="info">schreibt einen string auf den bildschirm, nachdem das programm fertig ist</td>
+      </tr>
+      <tr>
+        <td class="name"><div class="name-inner">IO.println <STRING></div></td>
+        <td class="info"> dasselbe wie IO.print nur, dass auch eine neue zeile danach gemacht wird</td>
+      </tr>
+      <tr>
+        <td class="name"><div class="name-inner">Number.eq <ZAHL 1> <ZAHL 2></div></td>
+        <td class="info">vergleicht zwei zahlen, gibt :true zurück, wenn sie gleich sind, sonst :false.</td>
+      </tr>
+      <tr>
+        <td class="name"><div class="name-inner">Number.pow <ZAHL 1> <ZAHL 2>  </div></td>
+        <td class="info">zahl hoch eine andere zahl</td>
+      </tr>
+      <tr>
+        <td class="name"><div class="name-inner">String.concatL <LISTE VON STRNGS></div></td>
+        <td class="info">hängt eine liste von strings aneinander</td>
+      </tr>
+      <tr>
+        <td class="name"><div class="name-inner">String.concat</div></td>
+        <td class="info">dasselbe wie List.concat, aber für strings</td>
+      </tr>
+      <tr>
+        <td class="name"><div class="name-inner">Bool.or <A> <B></div></td>
+        <td class="info">wie ODER funktion in excel</td>
+      </tr>
+      <tr>
+        <td class="name"><div class="name-inner">fst {1, 2} --> gibt 1 zurück<br>snd {1, 2} --> gibt 2 zurück</div></td>
+        <td class="info">mit fst und snd kann man das erste oder zweite feld eines objektes extrahieren</td></tr>
+      </tr>
+    </tbody>
+  </table></div>
+
+  <script>
+
+    Array.from(document
+    .getElementsByClassName("info"))
+    .map( ( e, index ) => (index % 2 === 0)
+      ? e.classList.toggle("info-every-second")
+      : null
+    )
+
+  </script>
+
+
+</body>
+
+</html>

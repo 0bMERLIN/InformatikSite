@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <!-- set up the window  -->
+    <meta charset='unicode'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <!-- load scripts -->
+    <script src="../elm/editor/main.js"></script>
+    <script src="run-code.js"></script>
+    <script src="tab-handler.js"></script>
+    <script src="scroll-duplicator.js"></script>
+
+    <!-- load css stylesheets -->
+    <link rel="stylesheet" href="code-editor.css">
+</head>
+
+<body>
+    <!-- this div will be replaced by elms view function applied to the
+         model. this will create the code editor.
+         the code can be compiled and run using the run button.
+         the styling for these elements is in code-editor.css -->
+    <div id="elm-app">
+        <script>
+            // start the elm app
+            main();
+        </script>
+    </div>
+    
+    <script>
+        // text editing / event sharing stuff
+        handleTabs("code-input");
+        dupScrollFromTo("code-input", "code-output")
+    </script>
+    
+</body>
+
+</html>
