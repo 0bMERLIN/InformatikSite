@@ -136,78 +136,39 @@ tutcard3 : Card msg
 tutcard3 =
   { title = "Pattern matching"
   , code = Highlighting.highlight Highlighting.syntax
-  """mod Start
-  -- einfach ein objekt mit herberts accountdaten
-  def herbertsInfos =
+  """pattern matching:
+
+mod Start
+  def infos =
   { :name, "herbert",
     :nachname, "herbertius",
     :passwort, "herberti123"
   }
 
-  -- wir vergleichen herbertsInfos mit einem Pattern,
-  -- also einem Muster oder einer Schablone.
-  -- der Unterstrich _ bedeutet "ignoriere das hier;
-  -- hier ist etwas, aber ist mir egal was".
-  -- wenn man einen Wert wie hier ein symbol
-  -- in einem Pattern schreibt, dann
-  -- heißt das: vergleiche den wert hier
-  -- mit dem wert der im objekt an dieser stelle ist.
-  -- so stellen wir sicher, das wir auch
-  -- ein objekt haben, das herberts daten
-  -- enthält, also sein passwort usw.
-  -- das 'p' ganz am ende, vor dem =>
-  -- bedeutet, dass wir den Wert in herbertsInfos
-  -- an dieser Position in die variable p speichern
-  -- p sollte wenn wir es nach dem => nutzen
-  -- "herberti123" enthalten
-  def nurPasswort = match herbertsInfos with
-    {:name, _, :nachname, _, :passwort, p}
-      => p -- p ist hier das ergebnis des match
-           -- statements und auch folglich der wert
-           -- in nurPassword
+  -- Ein Match Statement gleicht einen Wert mit
+  -- Mustern (oder patterns) ab. Wenn ein Pattern zum
+  -- Wert passt, dann wird das Stück vom Programm,
+  -- das nach dem '=>' steht ausgeführt. Match Statements
+  -- fangen mit dem Wort 'match' an, danach folgt
+  -- der Wert mit dem verglichen wird. Nach 'with'
+  -- folgen die Patterns, die jeweils mit '|' abgetrennt
+  -- werden und das ganze wird mit dem Wort 'end' abgeschlossen
+  def _ = match 1 + 1 with
+      2 => IO.print "alles normal!"
+    | 3 => IO.print "?"
   end
-
-  def x = 1
-
-  -- man kann auch zahlen im match statement vergleichen
-  -- außerdem kann man auch mehrere Patterns haben,
-  -- gegen die man vergleicht. wenn ein pattern passt,
-  -- dann wird der diesem zugeordnete rückgabewert aus-
-  -- gewählt. die anderen werden garnicht erst berechnet
-  def einsOderZwei = match x with
-      1 => "ist eins"
-    | 2 => "ist zwei"
-    | _ => "ist irgendetwas anderes"
+  
+  -- hier werden herberts accountdaten
+  -- abgeglichen, um seinen nachnamen
+  -- herauszufinden (_ bedeutet ignorieren,
+  -- ein klein geschriebener
+  -- variablenname bedeutet 'was hier im objekt
+  -- ist mit diesem namen abspeichern')
+  def _ = match infos with
+    { :name, _, :nachname, name, :passwort, _ } =>
+      IO.print (String.concat "herberts nachname:  " name)
   end
+  
 end;"""
   , explanation = ""
-  }
-
-tutcard5 : Card msg
-tutcard5 =
-  { title = "Extra Infos zu Listen und Strings"
-  , code = Highlighting.highlight Highlighting.syntax
-    """mod Start
-  def liste = [1, 2, 3, 4, 5]
-
-  -- so ist List.head auch implementiert
-  def erstesElement = match liste with
-    -- eine lehre list ist ein lehres objekt
-    {} => "liste ist leer"
-
-    -- listen sind objekte die
-    -- jeweils das element und das nächste
-    -- objekt mit einem element etc. haben
-    {}
-  end
-end;"""
-  , explanation =
-  """Zwar ist Dot eigentlich nur eine Art
-  Spielzeug und ist auch einfach zu langsam,
-  um ordentliche Sachen zu machen. Trotzdem
-  lassen sich so einige Algorithmen in Dot
-  ausprobieren. Dafür ist die Standard Library da,
-  in der alle möglichen Funktionen und Algorithmen
-  geschrieben sind. Hier ist eine Liste mit allen
-  StdLib-Funktionen:"""
   }
