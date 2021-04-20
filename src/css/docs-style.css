@@ -54,3 +54,7 @@ body {
 .info-every-second {
   background-color: #eee;
 }
+
+#top-bar {
+  position: absolute;
+}

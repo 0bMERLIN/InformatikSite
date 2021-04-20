@@ -87,12 +87,12 @@ a {
   z-index: 100;
   position: relative;
   display: flex;
-  opacity: .98;
   width: 100vw;
   height: 6.7vh;
   background-color: var(--widget-red);
   overflow-y: hidden;
   justify-content: flex-end;
+  opacity: 0.7;
 }
 
 
@@ -173,12 +173,14 @@ a {
 #github-link-wrapper {
   position: absolute;
   display: flex;
+  z-index: 200;
 
   padding: 0px;
   justify-content: center;
   align-items: center;
   
   height: 6.7vh;
+  top: 0;
   left: 1%;
 }
 
@@ -201,10 +203,8 @@ a {
 
   border-style: solid;
   border-radius: 100%;
-  border-color: var(--widget-red);
+  border-color: transparent;
 }
-
-
 
 
 /*----------- media queries -----------*/
@@ -218,7 +218,6 @@ a {
     z-index: 100;
     position: relative;
     display: flex;
-    opacity: .98;
     width: 100vw;
     height: 6.7vh;
     background-color: var(--widget-red);
