@@ -11094,8 +11094,8 @@ function $author$project$LanguageParser$cyclic$expInner() {
 				$author$project$LanguageParser$cyclic$lambda(),
 				$author$project$LanguageParser$cyclic$match(),
 				$author$project$LanguageParser$variable,
-				$author$project$LanguageParser$cyclic$elit(),
-				$author$project$LanguageParser$moduleAccess
+				$author$project$LanguageParser$moduleAccess,
+				$author$project$LanguageParser$cyclic$elit()
 			]));
 }
 function $author$project$LanguageParser$cyclic$builtin() {
@@ -11564,13 +11564,18 @@ var $elm$json$Json$Decode$string = _Json_decodeString;
 var $author$project$Editor$BrightnessModeBtnReEnable = {$: 'BrightnessModeBtnReEnable'};
 var $elm$json$Json$Decode$int = _Json_decodeInt;
 var $author$project$Editor$onBrightnessBtnReEnable = _Platform_incomingPort('onBrightnessBtnReEnable', $elm$json$Json$Decode$int);
-var $author$project$Editor$subscriptions = function (_v0) {
+var $author$project$Editor$onTabPress = _Platform_incomingPort('onTabPress', $elm$json$Json$Decode$string);
+var $author$project$Editor$subscriptions = function (model) {
 	return $elm$core$Platform$Sub$batch(
 		_List_fromArray(
 			[
 				$author$project$Editor$onBrightnessBtnReEnable(
-				function (_v1) {
+				function (_v0) {
 					return $author$project$Editor$BrightnessModeBtnReEnable;
+				}),
+				$author$project$Editor$onTabPress(
+				function (s) {
+					return $author$project$Editor$UpdateCode(s);
 				})
 			]));
 };

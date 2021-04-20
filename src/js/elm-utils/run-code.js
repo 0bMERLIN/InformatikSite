@@ -173,4 +173,6 @@ let CodeEditor_main = () => {
           // wait some time before updating the style to let saveBrightness finish
           setTimeout(_ => updateStyleVars(), btnTimeout / 2)
       } )
+    
+    window.elmApp = app
 }

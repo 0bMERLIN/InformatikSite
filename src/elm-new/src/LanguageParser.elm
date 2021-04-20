@@ -617,8 +617,8 @@ expInner =
     , lambda
     , match
     , variable
-    , elit
     , moduleAccess
+    , elit
     ]
 
 

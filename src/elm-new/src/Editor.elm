@@ -253,8 +253,10 @@ main = Browser.element
 
 
 port onBrightnessBtnReEnable : (Int -> msg) -> Sub msg
+port onTabPress : (String -> msg) -> Sub msg
 
-subscriptions :  model -> Sub Msg
-subscriptions _ = Sub.batch
+subscriptions :  Model -> Sub Msg
+subscriptions model = Sub.batch
   [ onBrightnessBtnReEnable (\_ -> BrightnessModeBtnReEnable)
+  , onTabPress (\s -> UpdateCode s)
   ]
