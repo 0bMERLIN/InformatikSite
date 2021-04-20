@@ -179,25 +179,31 @@ a {
   align-items: center;
   
   height: 6.7vh;
-  width: 6.7vh;
-  left: 0px;
+  left: 1%;
 }
 
 #github-link {
   all: unset;
+  position: absolute;
   display: block;
   position: relative;
-  
-  width: 70%;
-  height: 70%;
+
+  width: 5vh;
+  height: 5vh;
 }
 
 #github-link-icon {
   all: unset;
+  position: absolute;
 
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
+
+  border-style: solid;
+  border-radius: 100%;
+  border-color: var(--widget-red);
 }
+
 
 
 

@@ -25,10 +25,22 @@ mod List
     {h, t} => t
   end
 
-  def atIndex = fn n xs => match n with
-      0 => head xs
-    | _ => atIndex (n - 1) (tail xs)
-  end
+  def atIndex = fn n xs =>
+    match { n, xs } with
+      { 0, {hd, _} } => {:just, hd}
+      | {_, {_, tl}} => atIndex (n - 1) tl
+      | {_, {}} => {:nothing}
+    end
+
+  def transformNth = fn idx f l =>
+    match l with
+      [] => []
+      | {hd, tl} =>
+        match idx with
+          0 => {f hd, tl}
+          | _ => {hd, transformNth (idx - 1) f tl}
+        end
+    end
 end
 
 mod Ctrl
@@ -102,6 +114,21 @@ mod IO
   end
 
   def println = fn s => print (String.concat s "\n")
+end
+
+mod BrainfuckToJS
+  def compile = fn progStr =>
+    match progStr with
+        {'+', tl} => {"mem[mp] += 1;\n", compile tl}
+      | {'-', tl} => {"mem[mp] -= 1;\n", compile tl}
+      | {'>', tl} => {"mp++;\n", compile tl}
+      | {'<', tl} => {"mp--;\n", compile tl}
+      | {'[', tl} =>
+        match compileLoop tl with
+          {js, rest} => String.concatL {js, rest}
+        end
+      | {} => {}
+    end
 end
 `
 
