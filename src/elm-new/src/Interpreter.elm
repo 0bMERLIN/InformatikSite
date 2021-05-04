@@ -367,12 +367,13 @@ evalExp exp ioBuf env = case exp of
 
         evalExp expB ioBufA env |> andThen (\(valB, ioBufB) ->
 
-        case (valA, valB) of
-            (VLit (LNum a), VLit (LNum b)) -> case t of
-                BAdd     -> Right (VLit (LNum (a + b)), ioBufB)
-                BSub     -> Right (VLit (LNum (a - b)), ioBufB)
-                BMul     -> Right (VLit (LNum (a * b)), ioBufB)
-                BDiv     -> Right (VLit (LNum (a / b)), ioBufB)
-                BLess    -> Right (VLit (boolToLit (a < b)), ioBufB)
-                BGreater -> Right (VLit (boolToLit (a > b)), ioBufB)
-            _ -> Left "can't do arithmetic on non-number values"))
+        case (valA, valB, t) of
+            (VLit (LNum a), VLit (LNum b), BAdd) -> Right (VLit (LNum (a + b)), ioBufB)
+            (VLit (LNum a), VLit (LNum b), BSub) -> Right (VLit (LNum (a - b)), ioBufB)
+            (VLit (LNum a), VLit (LNum b), BMul) -> Right (VLit (LNum (a * b)), ioBufB)
+            (VLit (LNum a), VLit (LNum b), BDiv) -> Right (VLit (LNum (a / b)), ioBufB)
+            (VLit (LNum a), VLit (LNum b), BLess) -> Right (VLit (boolToLit (a < b)), ioBufB)
+            (VLit (LNum a), VLit (LNum b), BGreater) -> Right (VLit (boolToLit (a > b)), ioBufB)
+            (VLit a, VLit b, BEq) -> Right (VLit (boolToLit (a == b)), ioBufB)
+                
+            _ -> Left "invalid arithmetic operation"))

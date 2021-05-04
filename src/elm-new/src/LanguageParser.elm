@@ -51,6 +51,7 @@ type ArithType
     | BDiv
     | BLess
     | BGreater
+    | BEq
 
 
 type Lit
@@ -367,6 +368,7 @@ reservedWords =
 reservedSymbols : List String
 reservedSymbols =
     [ "=>"
+    , "=="
     , "="
     , "{"
     , "}"
@@ -651,6 +653,7 @@ operator =
     , succeed BDiv |. Parser.symbol "/"
     , succeed BLess |. Parser.symbol "<"
     , succeed BGreater |. Parser.symbol ">"
+    , succeed BEq |. Parser.symbol "=="
     ]
 
 

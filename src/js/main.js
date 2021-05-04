@@ -9406,7 +9406,7 @@ var $author$project$Highlighting$parseIdentifierWithTag = F2(
 				$author$project$Highlighting$parseIdentifier(reservedWords)));
 	});
 var $author$project$LanguageParser$reservedSymbols = _List_fromArray(
-	['=>', '=', '{', '}', ',', ';', '|', '[', ']']);
+	['=>', '==', '=', '{', '}', ',', ';', '|', '[', ']']);
 var $author$project$LanguageParser$reservedWords = _List_fromArray(
 	['let', 'in', 'match', 'with', 'fn', 'write', 'mod', 'def', 'end', 'stringof']);
 var $author$project$Highlighting$parseStringInnerHelper = function (revChars) {
@@ -10332,53 +10332,107 @@ var $author$project$Interpreter$evalExp = F3(
 								function (_v14) {
 									var valB = _v14.a;
 									var ioBufB = _v14.b;
-									var _v15 = _Utils_Tuple2(valA, valB);
-									if ((((_v15.a.$ === 'VLit') && (_v15.a.a.$ === 'LNum')) && (_v15.b.$ === 'VLit')) && (_v15.b.a.$ === 'LNum')) {
-										var a = _v15.a.a.a;
-										var b = _v15.b.a.a;
-										switch (t.$) {
-											case 'BAdd':
-												return $toastal$either$Either$Right(
-													_Utils_Tuple2(
-														$author$project$LanguageParser$VLit(
-															$author$project$LanguageParser$LNum(a + b)),
-														ioBufB));
-											case 'BSub':
-												return $toastal$either$Either$Right(
-													_Utils_Tuple2(
-														$author$project$LanguageParser$VLit(
-															$author$project$LanguageParser$LNum(a - b)),
-														ioBufB));
-											case 'BMul':
-												return $toastal$either$Either$Right(
-													_Utils_Tuple2(
-														$author$project$LanguageParser$VLit(
-															$author$project$LanguageParser$LNum(a * b)),
-														ioBufB));
-											case 'BDiv':
-												return $toastal$either$Either$Right(
-													_Utils_Tuple2(
-														$author$project$LanguageParser$VLit(
-															$author$project$LanguageParser$LNum(a / b)),
-														ioBufB));
-											case 'BLess':
-												return $toastal$either$Either$Right(
-													_Utils_Tuple2(
-														$author$project$LanguageParser$VLit(
-															$author$project$Interpreter$boolToLit(
-																_Utils_cmp(a, b) < 0)),
-														ioBufB));
-											default:
-												return $toastal$either$Either$Right(
-													_Utils_Tuple2(
-														$author$project$LanguageParser$VLit(
-															$author$project$Interpreter$boolToLit(
-																_Utils_cmp(a, b) > 0)),
-														ioBufB));
+									var _v15 = _Utils_Tuple3(valA, valB, t);
+									_v15$7:
+									while (true) {
+										if ((_v15.a.$ === 'VLit') && (_v15.b.$ === 'VLit')) {
+											switch (_v15.c.$) {
+												case 'BAdd':
+													if ((_v15.a.a.$ === 'LNum') && (_v15.b.a.$ === 'LNum')) {
+														var a = _v15.a.a.a;
+														var b = _v15.b.a.a;
+														var _v16 = _v15.c;
+														return $toastal$either$Either$Right(
+															_Utils_Tuple2(
+																$author$project$LanguageParser$VLit(
+																	$author$project$LanguageParser$LNum(a + b)),
+																ioBufB));
+													} else {
+														break _v15$7;
+													}
+												case 'BSub':
+													if ((_v15.a.a.$ === 'LNum') && (_v15.b.a.$ === 'LNum')) {
+														var a = _v15.a.a.a;
+														var b = _v15.b.a.a;
+														var _v17 = _v15.c;
+														return $toastal$either$Either$Right(
+															_Utils_Tuple2(
+																$author$project$LanguageParser$VLit(
+																	$author$project$LanguageParser$LNum(a - b)),
+																ioBufB));
+													} else {
+														break _v15$7;
+													}
+												case 'BMul':
+													if ((_v15.a.a.$ === 'LNum') && (_v15.b.a.$ === 'LNum')) {
+														var a = _v15.a.a.a;
+														var b = _v15.b.a.a;
+														var _v18 = _v15.c;
+														return $toastal$either$Either$Right(
+															_Utils_Tuple2(
+																$author$project$LanguageParser$VLit(
+																	$author$project$LanguageParser$LNum(a * b)),
+																ioBufB));
+													} else {
+														break _v15$7;
+													}
+												case 'BDiv':
+													if ((_v15.a.a.$ === 'LNum') && (_v15.b.a.$ === 'LNum')) {
+														var a = _v15.a.a.a;
+														var b = _v15.b.a.a;
+														var _v19 = _v15.c;
+														return $toastal$either$Either$Right(
+															_Utils_Tuple2(
+																$author$project$LanguageParser$VLit(
+																	$author$project$LanguageParser$LNum(a / b)),
+																ioBufB));
+													} else {
+														break _v15$7;
+													}
+												case 'BLess':
+													if ((_v15.a.a.$ === 'LNum') && (_v15.b.a.$ === 'LNum')) {
+														var a = _v15.a.a.a;
+														var b = _v15.b.a.a;
+														var _v20 = _v15.c;
+														return $toastal$either$Either$Right(
+															_Utils_Tuple2(
+																$author$project$LanguageParser$VLit(
+																	$author$project$Interpreter$boolToLit(
+																		_Utils_cmp(a, b) < 0)),
+																ioBufB));
+													} else {
+														break _v15$7;
+													}
+												case 'BGreater':
+													if ((_v15.a.a.$ === 'LNum') && (_v15.b.a.$ === 'LNum')) {
+														var a = _v15.a.a.a;
+														var b = _v15.b.a.a;
+														var _v21 = _v15.c;
+														return $toastal$either$Either$Right(
+															_Utils_Tuple2(
+																$author$project$LanguageParser$VLit(
+																	$author$project$Interpreter$boolToLit(
+																		_Utils_cmp(a, b) > 0)),
+																ioBufB));
+													} else {
+														break _v15$7;
+													}
+												default:
+													var a = _v15.a.a;
+													var b = _v15.b.a;
+													var _v22 = _v15.c;
+													return $toastal$either$Either$Right(
+														_Utils_Tuple2(
+															$author$project$LanguageParser$VLit(
+																$author$project$Interpreter$boolToLit(
+																	_Utils_eq(a, b))),
+															ioBufB));
+											}
+										} else {
+											break _v15$7;
 										}
-									} else {
-										return $toastal$either$Either$Left('can\'t do arithmetic on non-number values');
 									}
+									return $toastal$either$Either$Left('invalid arithmetic operation');
 								},
 								A3($author$project$Interpreter$evalExp, expB, ioBufA, env));
 						},
@@ -10874,6 +10928,7 @@ var $author$project$LanguageParser$moduleAccess = A2(
 	$author$project$LanguageParser$variableName);
 var $author$project$LanguageParser$BAdd = {$: 'BAdd'};
 var $author$project$LanguageParser$BDiv = {$: 'BDiv'};
+var $author$project$LanguageParser$BEq = {$: 'BEq'};
 var $author$project$LanguageParser$BGreater = {$: 'BGreater'};
 var $author$project$LanguageParser$BLess = {$: 'BLess'};
 var $author$project$LanguageParser$BMul = {$: 'BMul'};
@@ -10904,7 +10959,11 @@ var $author$project$LanguageParser$operator = $elm$parser$Parser$oneOf(
 			A2(
 			$elm$parser$Parser$ignorer,
 			$elm$parser$Parser$succeed($author$project$LanguageParser$BGreater),
-			$elm$parser$Parser$symbol('>'))
+			$elm$parser$Parser$symbol('>')),
+			A2(
+			$elm$parser$Parser$ignorer,
+			$elm$parser$Parser$succeed($author$project$LanguageParser$BEq),
+			$elm$parser$Parser$symbol('=='))
 		]));
 var $author$project$LanguageParser$parametersAndArrow = $elm$parser$Parser$sequence(
 	{end: '=>', item: $author$project$LanguageParser$variableName, separator: '', spaces: $author$project$LanguageParser$whitespace, start: '', trailing: $elm$parser$Parser$Forbidden});
